@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusLost</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- LOGIN PAGE -->
+    <!-- ============================= -->
+
+    <div id="loginPage" class="page">
+
+        <div class="login-box">
+
+            <div class="logo">🎒</div>
+
+            <h1>CampusLost</h1>
+
+            <p class="subtitle">
+                Helping students find what they lost.
+            </p>
+
+            <form id="loginForm">
+
+                <label for="email">College Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="2xb01axxxx@svecw.edu.in"
+                    autocomplete="email"
+                    required
+                >
+
+                <small id="emailError" class="error-message"></small>
+
+
+                <label for="password">
+                    CampusLost Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your CampusLost password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <small id="passwordError" class="error-message"></small>
+
+
+                <div class="login-options">
+
+                    <label class="remember-label">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="forgot-btn"
+                        onclick="forgotPassword()"
+                    >
+                        Forgot password?
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn login-btn"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="college-note">
+                🔒 Only registered SVECW students can access CampusLost.
+            </p>
+
+
+            <p class="account-note">
+
+                First time using CampusLost?
+
+                <button
+                    type="button"
+                    class="register-btn"
+                    onclick="showRegisterPage()"
+                >
+                    Create account
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+    <!-- ============================= -->
+<!-- REGISTER PAGE -->
+<!-- ============================= -->
+
+<div id="registerPage" class="page hidden">
+
+    <div class="login-box">
+
+        <div class="logo">🎒</div>
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">
+            Join your CampusLost community.
+        </p>
+
+        <form id="registerForm">
+
+            <label for="registerName">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <small
+                id="registerNameError"
+                class="error-message"
+            ></small>
+
+
+            <label for="registerEmail">
+                College Email
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="2xb01axxxx@svecw.edu.in"
+                required
+            >
+
+            <small
+                id="registerEmailError"
+                class="error-message"
+            ></small>
+
+
+            <label for="registerStudentId">
+                Student ID
+            </label>
+
+            <input
+                type="text"
+                id="registerStudentId"
+                placeholder="Your college ID"
+                required
+            >
+
+            <small
+                id="registerStudentIdError"
+                class="error-message"
+            ></small>
+
+
+            <label for="registerPassword">
+                CampusLost Password
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create a password"
+                required
+            >
+
+            <small
+                id="registerPasswordError"
+                class="error-message"
+            ></small>
+
+
+            <label for="confirmPassword">
+                Confirm Password
+            </label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Re-enter your password"
+                required
+            >
+
+            <small
+                id="confirmPasswordError"
+                class="error-message"
+            ></small>
+
+
+            <button
+                type="submit"
+                class="primary-btn login-btn"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+        <p class="account-note">
+
+            Already have an account?
+
+            <button
+                type="button"
+                class="register-btn"
+                onclick="showLoginPage()"
+            >
+                Login
+            </button>
+
+        </p>
+
+    </div>
+
+</div>
+
+    <!-- ============================= -->
+    <!-- DASHBOARD -->
+    <!-- ============================= -->
+
+    <div id="dashboardPage" class="page hidden">
+        <button
+    type="button"
+    class="primary-btn"
+    onclick="testBackend()"
+>
+    Test Backend 🚀
+</button>
+        <!-- HEADER -->
+
+        <header>
+
+            <div class="brand">
+                🎒 CampusLost
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    class="notification-btn"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <span
+                        id="notificationBadge"
+                        class="notification-badge hidden"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="logout-btn"
+                    onclick="logout()"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN -->
+
+        <main class="dashboard">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome">
+
+                <div>
+
+                    <p class="small-text">
+                        Welcome back 👋
+                    </p>
+
+                    <h2 id="studentName">
+                        Student
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO -->
+
+            <div class="hero-card">
+
+                <div>
+
+                    <h2>
+                        Lost something?
+                    </h2>
+
+                    <p>
+                        Let your campus community help you find it.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="showRequestForm()"
+                >
+                    + Raise Lost Request
+                </button>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <div class="section-title">
+
+                <h2>
+                    CampusLost
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <!-- NEARBY REQUESTS -->
+
+                <div
+                    class="feature-card"
+                    onclick="showRequests()"
+                >
+
+                    <div class="feature-icon">
+                        🔎
+                    </div>
+
+                    <h3>
+                        Nearby Requests
+                    </h3>
+
+                    <p>
+                        Help students around you.
+                    </p>
+
+                </div>
+
+
+                <!-- MY REQUESTS -->
+
+                <div
+                    class="feature-card"
+                    onclick="showMyRequests()"
+                >
+
+                    <div class="feature-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        My Requests
+                    </h3>
+
+                    <p>
+                        Track requests you created.
+                    </p>
+
+                </div>
+
+
+                <!-- ACCEPTED TASKS -->
+
+                <div
+                    class="feature-card"
+                    onclick="showAcceptedTasks()"
+                >
+
+                    <div class="feature-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Accepted Tasks
+                    </h3>
+
+                    <p>
+                        Requests you agreed to help with.
+                    </p>
+
+                </div>
+
+
+                <!-- HISTORY -->
+
+                <div
+                    class="feature-card"
+                    onclick="showHistory()"
+                >
+
+                    <div class="feature-icon">
+                        📜
+                    </div>
+
+                    <h3>
+                        History
+                    </h3>
+
+                    <p>
+                        View completed requests.
+                    </p>
+
+                </div>
+
+
+                <!-- NOTIFICATIONS -->
+
+                <div
+                    class="feature-card"
+                    onclick="showNotifications()"
+                >
+
+                    <div class="feature-icon">
+                        🔔
+                    </div>
+
+                    <h3>
+                        Notifications
+                    </h3>
+
+                    <p>
+                        See updates about your requests.
+                    </p>
+
+                </div>
+
+
+                <!-- FEEDBACK -->
+
+                <div
+                    class="feature-card"
+                    onclick="showFeedback()"
+                >
+
+                    <div class="feature-icon">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        Feedback
+                    </h3>
+
+                    <p>
+                        Share your experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- RAISE REQUEST -->
+            <!-- ============================= -->
+
+            <div
+                id="requestForm"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    Raise a Lost Item Request
+                </h2>
+
+                <p class="section-description">
+                    Tell your campus community what you lost.
+                </p>
+
+
+                <form id="lostForm">
+
+
+                    <label for="name">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+
+                    <label for="studentId">
+                        Student ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentId"
+                        placeholder="Your college ID"
+                        required
+                    >
+
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Your phone number"
+                        required
+                    >
+
+
+                    <label for="item">
+                        Lost Item
+                    </label>
+
+                    <input
+                        type="text"
+                        id="item"
+                        placeholder="Example: Black Wallet"
+                        required
+                    >
+
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe the item..."
+                        required
+                    ></textarea>
+
+
+                    <label for="location">
+                        Where did you lose it?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Library - 2nd Floor"
+                        required
+                    >
+
+
+                    <label for="image">
+                        Upload Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                    >
+
+                    <small class="image-note">
+                        Optional: upload an image of the lost item.
+                    </small>
+
+
+                    <div class="form-buttons">
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Send Request
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="secondary-btn"
+                        >
+                            Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- NEARBY REQUESTS -->
+            <!-- ============================= -->
+
+            <div
+                id="requestsSection"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    Nearby Lost Requests
+                </h2>
+
+                <p class="section-description">
+                    Students who need help around campus.
+                </p>
+
+                <div id="nearbyRequestsContainer"></div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- MY REQUESTS -->
+            <!-- ============================= -->
+
+            <div
+                id="myRequestsSection"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    My Requests
+                </h2>
+
+                <p class="section-description">
+                    Track the requests you have raised.
+                </p>
+
+                <div id="myRequestsContainer"></div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- ACCEPTED TASKS -->
+            <!-- ============================= -->
+
+            <div
+                id="acceptedTasksSection"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    Accepted Tasks
+                </h2>
+
+                <p class="section-description">
+                    Requests you have accepted to help with.
+                </p>
+
+                <div id="acceptedTasksContainer"></div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- HISTORY -->
+            <!-- ============================= -->
+
+            <div
+                id="historySection"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    Request History
+                </h2>
+
+                <p class="section-description">
+                    Your completed CampusLost activities.
+                </p>
+
+                <div id="historyContainer"></div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- NOTIFICATIONS -->
+            <!-- ============================= -->
+
+            <div
+                id="notificationsSection"
+                class="content-section hidden"
+            >
+
+                <div class="notification-heading">
+
+                    <div>
+
+                        <h2>
+                            Notifications
+                        </h2>
+
+                        <p class="section-description">
+                            Updates about your requests.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-btn small-btn"
+                        onclick="markNotificationsRead()"
+                    >
+                        Mark all as read
+                    </button>
+
+                </div>
+
+
+                <div id="notificationsContainer"></div>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- FEEDBACK -->
+            <!-- ============================= -->
+
+            <div
+                id="feedbackSection"
+                class="content-section hidden"
+            >
+
+                <h2>
+                    Feedback
+                </h2>
+
+                <p class="section-description">
+                    Tell us about your CampusLost experience.
+                </p>
+
+
+                <textarea
+                    id="feedback"
+                    placeholder="Write your feedback..."
+                ></textarea>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="submitFeedback()"
+                >
+                    Submit Feedback
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
